@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='mywebscript.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <header>
+                <h1>Emotion Detector</h1>
+                <p class="subtitle">Analyze the emotional sentiment in any statement using Watson NLP</p>
+            </header>
+
+            <main>
+                <div class="input-section">
+                    <label for="textToAnalyze">Enter your text statement:</label>
+                    <textarea 
+                        id="textToAnalyze" 
+                        rows="4" 
+                        placeholder="Type or paste text here (e.g., 'I am glad this happened')..."
+                    ></textarea>
+                </div>
+
+                <div class="button-section">
+                    <button id="analyze-btn" onclick="RunSentimentAnalysis()">Run Sentiment Analysis</button>
+                    <button id="clear-btn" onclick="clearInput()">Clear</button>
+                </div>
+
+                <div class="response-section">
+                    <h3>Analysis Result</h3>
+                    <div id="system_response" class="result-box">
+                        Results will appear here after analysis.
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <p>&copy; 2026 Emotion Detector Application | IBM Skills Network Project</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
