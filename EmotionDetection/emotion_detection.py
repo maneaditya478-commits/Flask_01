@@ -41,13 +41,13 @@ def _fallback_emotion_evaluator(text):
     }
 
 
-def emotion_detector(text_to_analyze):
+def emotion_detector(text_to_analyse):
     """
     Sends text to Watson NLP EmotionPredict API and returns emotion scores
     along with the dominant emotion.
 
     Args:
-        text_to_analyze (str): Input text to analyze for emotions.
+        text_to_analyse (str): Input text to analyze for emotions.
 
     Returns:
         dict: A dictionary containing scores for anger, disgust, fear, joy,
@@ -62,7 +62,7 @@ def emotion_detector(text_to_analyze):
     }
     payload = {
         "raw_document": {
-            "text": text_to_analyze
+            "text": text_to_analyse
         }
     }
 
@@ -77,7 +77,7 @@ def emotion_detector(text_to_analyze):
     }
 
     # If text is empty or whitespace
-    if not text_to_analyze or not str(text_to_analyze).strip():
+    if not text_to_analyse or not str(text_to_analyse).strip():
         return error_response
 
     try:
@@ -124,6 +124,6 @@ def emotion_detector(text_to_analyze):
         }
     except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
         # Fallback when running in local environment where internal IBM lab endpoint is unreachable
-        return _fallback_emotion_evaluator(text_to_analyze)
+        return _fallback_emotion_evaluator(text_to_analyse)
     except (KeyError, IndexError, ValueError):
         return error_response
